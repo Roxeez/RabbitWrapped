@@ -1,12 +1,12 @@
 using System;
 
-namespace RabbitWrapped.Common;
+namespace RabbitWrapped.Mapping;
 
-public class ConsumerMapping
+public class ProducerMapping
 {
     public string Queue { get; init; }
     public string Exchange { get; init; }
     public string RoutingKey { get; init; }
-    
-    public Type ConsumerType { get; init; }
+
+    public Type MessageType { get; init; }
 }

@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitWrapped", "RabbitWrapped\RabbitWrapped.csproj", "{7A9B5E46-C3F6-445E-A767-65A586F80040}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitWrapped", "src\RabbitWrapped\RabbitWrapped.csproj", "{7A9B5E46-C3F6-445E-A767-65A586F80040}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitWrapped.Example", "src\RabbitWrapped.Example\RabbitWrapped.Example.csproj", "{0C193717-FB6E-4015-A95E-E50B04501F43}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,5 +14,9 @@ Global
 		{7A9B5E46-C3F6-445E-A767-65A586F80040}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A9B5E46-C3F6-445E-A767-65A586F80040}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A9B5E46-C3F6-445E-A767-65A586F80040}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C193717-FB6E-4015-A95E-E50B04501F43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C193717-FB6E-4015-A95E-E50B04501F43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C193717-FB6E-4015-A95E-E50B04501F43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C193717-FB6E-4015-A95E-E50B04501F43}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
