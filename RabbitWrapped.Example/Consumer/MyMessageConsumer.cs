@@ -14,6 +14,6 @@ public class MyMessageConsumer : MessageConsumer<MyMessage>
 
     protected override void Consume(MyMessage message)
     {
-        
+        logger.LogInformation("Username: {username}", message.Username);
     }
 }

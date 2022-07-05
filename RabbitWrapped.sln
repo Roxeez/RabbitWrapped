@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitWrapped", "src\RabbitWrapped\RabbitWrapped.csproj", "{7A9B5E46-C3F6-445E-A767-65A586F80040}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitWrapped", "RabbitWrapped\RabbitWrapped.csproj", "{7A9B5E46-C3F6-445E-A767-65A586F80040}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitWrapped.Example", "src\RabbitWrapped.Example\RabbitWrapped.Example.csproj", "{0C193717-FB6E-4015-A95E-E50B04501F43}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitWrapped.Example", "RabbitWrapped.Example\RabbitWrapped.Example.csproj", "{0C193717-FB6E-4015-A95E-E50B04501F43}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
