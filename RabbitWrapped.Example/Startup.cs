@@ -17,19 +17,19 @@ public class Startup
         this.configuration = configuration;
     }
 
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddRabbit(new RabbitConfiguration
+    public void ConfigureServices(IServiceCollection services)
     {
-        Host = "127.0.0.1",
-        Port = 5672,
-        Username = "guest",
-        Password = "guest"
-    });
-    
-    services.AddMessageProducer<MyMessage>(queue: "my-queue");
-    services.AddMessageConsumer<MyMessageConsumer>(queue: "my-queue");
-}
+        services.AddRabbit(new RabbitConfiguration
+        {
+            Host = "127.0.0.1",
+            Port = 5672,
+            Username = "guest",
+            Password = "guest"
+        });
+        
+        services.AddMessageProducer<MyMessage>(queue: "my-queue");
+        services.AddMessageConsumer<MyMessageConsumer>(queue: "my-queue");
+    }
 
     public void Configure(IApplicationBuilder app)
     {
