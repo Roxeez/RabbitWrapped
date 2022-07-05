@@ -76,12 +76,12 @@ internal class RabbitService : IHostedService
                     var deserialized = JsonSerializer.Deserialize(body, consumer.MessageType) as IMessage;
                     if (deserialized is null)
                     {
-                        logger.LogError("Failed to deserialize body into {messageType}", consumer.MessageType);
+                        logger.LogError("Failed to deserialize body into {messageType}", consumer.MessageType.Name);
                         return;
                     }
 
                     logger.LogDebug("Consuming message {messageType} using consumer {consumerType}",
-                        consumer.MessageType, mapping.ConsumerType);
+                        consumer.MessageType.Name, mapping.ConsumerType.Name);
                     consumer.Consume(deserialized);
                 }
                 catch (Exception ex)

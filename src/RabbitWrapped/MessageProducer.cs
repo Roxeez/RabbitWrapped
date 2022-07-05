@@ -26,7 +26,7 @@ public class MessageProducer<T> where T : IMessage
         var mapping = mappingManager.GetProducerMapping(message.GetType());
         if (mapping is null)
         {
-            logger.LogError("Can't found mapping for message {message}", message.GetType());
+            logger.LogError("Can't found mapping for message {message}", message.GetType().Name);
             return;
         }
 
@@ -53,7 +53,7 @@ public class MessageProducer<T> where T : IMessage
         var serialized = JsonSerializer.Serialize(message);
         var body = Encoding.UTF8.GetBytes(serialized);
 
-        logger.LogDebug("Publishing message {message}", message.GetType());
+        logger.LogDebug("Publishing message {message}", message.GetType().Name);
         channel.BasicPublish(mapping.Exchange,
             string.IsNullOrEmpty(mapping.RoutingKey) ? mapping.Queue : mapping.RoutingKey, body: body);
     }
