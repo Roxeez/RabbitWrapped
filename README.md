@@ -56,6 +56,13 @@ public class MyMessageConsumer : MessageConsumer<MyMessage>
 }
 ```
 ```c#
+private readonly IConfiguration configuration;
+
+public Startup(IConfiguration configuration)
+{
+    this.configuration = configuration;
+}
+
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddRabbit(configuration);
