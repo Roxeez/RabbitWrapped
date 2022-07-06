@@ -18,18 +18,38 @@ jobs:
       with:
         fetch-depth: 0
     
-    - name: Configuring .NET SDK ${{ env.dotnet-version }}
+    - name: Configure .NET SDK ${{ env.dotnet-version }}
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: ${{ env.dotnet-version }}
+        source-url: https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
+      env:
+        NUGET_AUTH_TOKEN: '%NUGET_AUTH_TOKEN%'
         
-    - name: Installing GitVersion
+    - name: Install GitVersion
       uses: gittools/actions/gitversion/setup@v0.9.7
       with:
         versionSpec: '5.x'
         
-    - name: Determine Version
+    - name: Generate version
       uses: gittools/actions/gitversion/execute@v0.9.7
       with:
         useConfigFile: true
         configFilePath: gitversion.yml
+    
+    - name: Restore dependencies
+      run: dotnet restore
+      
+    - name: Build project
+      run: dotnet build -c Release --no-restore /p:Version=${{version}}
+      
+    - name: Create package
+      run: dotnet pack -c Release --no-build
+      
+    - name: Upload package to nuget
+      run: dotnet nuget push **/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.PUBLISH_TO_NUGET_ORG }} --skip-duplicate
+
+    - name: Upload package to github
+      run: dotnet nuget push **/*.nupkg --no-symbols --skip-duplicate
+      env:
+        NUGET_AUTH_TOKEN: ${{ github.token }}
