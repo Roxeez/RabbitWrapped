@@ -41,7 +41,7 @@ jobs:
       run: dotnet restore
       
     - name: Build project
-      run: dotnet build -c Release --no-restore /p:Version=${{version}}
+      run: dotnet build -c Release --no-restore /p:Version=${{steps.gitversion.outputs.semVer}}
       
     - name: Create package
       run: dotnet pack -c Release --no-build
