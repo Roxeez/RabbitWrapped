@@ -12,6 +12,7 @@
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <RepositoryType>git</RepositoryType>
         <PackageTags>RabbitMQ, Wrapper, Service</PackageTags>
+        <IsPackable>true</IsPackable>
     </PropertyGroup>
 
     <ItemGroup>
