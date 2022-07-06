@@ -51,4 +51,4 @@ jobs:
     - name: Add tag
       uses: rickstaa/action-create-tag@v1
       with:
-        tag: $GITVERSION_SEMVER
+        tag: 'v$GITVERSION_SEMVER'
