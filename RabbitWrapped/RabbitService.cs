@@ -32,8 +32,6 @@ internal class RabbitService : IHostedService
 
     public Task StartAsync(CancellationToken cancellationToken)
     {
-        var assembly = Assembly.GetEntryAssembly()!;
-
         var mappings = mappingManager.GetConsumerMappings();
         foreach (var mapping in mappings)
         {
