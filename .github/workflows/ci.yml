@@ -31,6 +31,7 @@ jobs:
         versionSpec: '5.x'
         
     - name: Generate version
+      id: gitversion
       uses: gittools/actions/gitversion/execute@v0.9.7
       with:
         useConfigFile: true
@@ -40,7 +41,7 @@ jobs:
       run: dotnet restore ${{ env.project-name }}
       
     - name: Build project
-      run: dotnet build ${{ env.project-name }} -c Release --no-restore /p:Version=$GitVersion_SemVer
+      run: dotnet build ${{ env.project-name }} -c Release --no-restore /p:Version=${{ steps.gitversion.outputs.semVer }}
       
     - name: Create package
       run: dotnet pack ${{ env.project-name }} -c Release --no-build
@@ -51,4 +52,4 @@ jobs:
     - name: Add tag
       uses: rickstaa/action-create-tag@v1
       with:
-        tag: 'v$GitVersion_SemVer'
+        tag: ${{ steps.gitversion.outputs.semVer }}
