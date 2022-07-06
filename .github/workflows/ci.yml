@@ -7,6 +7,7 @@ on:
 env:
   dotnet-version: 6.0.x
   project-name: RabbitWrapped
+  nuget-api-key: ${{ secrets.NUGET_KEY }}
 
 jobs:
   build:
@@ -47,4 +48,4 @@ jobs:
       run: dotnet pack ${{ env.project-name }} -c Release --no-build
       
     - name: Upload package
-      run: dotnet nuget push **/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_KEY }} --skip-duplicate
+      run: dotnet nuget push **/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ env.nuget-api-key }} --skip-duplicate
