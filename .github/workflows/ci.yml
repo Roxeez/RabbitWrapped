@@ -24,8 +24,6 @@ jobs:
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: ${{ env.dotnet-version }}
-      env:
-        NUGET_AUTH_TOKEN: '%NUGET_AUTH_TOKEN%'
         
     - name: Install GitVersion
       uses: gittools/actions/gitversion/setup@v0.9.7
