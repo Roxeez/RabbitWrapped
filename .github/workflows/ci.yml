@@ -6,6 +6,7 @@ on:
 
 env:
   dotnet-version: 6.0.x
+  project-name: RabbitWrapped
 
 jobs:
   build:
@@ -37,13 +38,13 @@ jobs:
         configFilePath: gitversion.yml
     
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore ${{ env.project-name }}
       
     - name: Build project
-      run: dotnet build -c Release --no-restore /p:Version=$GITVERSION_SEMVER
+      run: dotnet build ${{ env.project-name }} -c Release --no-restore /p:Version=$GITVERSION_SEMVER
       
     - name: Create package
-      run: dotnet pack -c Release --no-build
+      run: dotnet pack ${{ env.project-name }} -c Release --no-build
       
     - name: Upload package to nuget
       run: dotnet nuget push **/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_KEY }} --skip-duplicate
