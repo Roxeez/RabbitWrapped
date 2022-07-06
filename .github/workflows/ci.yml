@@ -40,7 +40,7 @@ jobs:
       run: dotnet restore ${{ env.project-name }}
       
     - name: Build project
-      run: dotnet build ${{ env.project-name }} -c Release --no-restore /p:Version=${{ steps.gitversion.outputs.semVer }}
+      run: dotnet build ${{ env.project-name }} -c Release --no-restore /p:Version=$GitVersion_SemVer
       
     - name: Create package
       run: dotnet pack ${{ env.project-name }} -c Release --no-build
@@ -51,4 +51,4 @@ jobs:
     - name: Add tag
       uses: rickstaa/action-create-tag@v1
       with:
-        tag: 'v${{ steps.gitversion.outputs.semVer }}'
+        tag: 'v$GitVersion_SemVer'
